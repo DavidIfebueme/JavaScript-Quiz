@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>                                                          
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+    <link rel="icon" type="image/png" href="assets/quiz_icon.png" />
+
+
+    <link rel="stylesheet" href="styling.css">
+
+    <script src="https://kit.fontawesome.com/3a3e121ecf.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="signup-box" id="username">
+
+<img src="assets/quiz_icon.png" alt="JS QUIZ">
+
+<form action="index1.html" name="suForm" id="supform">
+    <h2 style="text-align:center;">Enter your name to start Test</h2>
+    <input type="text" placeholder="Full name" id="name" onclick="resetBtn()" maxlength="30">
+    <input type="submit" id="submit-btn" value="Start Test" onmouseover="mouseOver()" onclick="startTest()">
+</form>
+</div>
+
+
+
+<script>
+
+    var a = 0;
+
+    function mouseOver(){
+        
+        const name = document.forms['suForm']['name'].value;
+           
+       
+
+        //const emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+
+        if((name == '' || name == 'undefined') && a==0){
+        buttonMoveLeft();
+        a = 1;
+        return false;
+        } 
+
+        if((name == '' || name == 'undefined') && a==1){
+        buttonMoveRight();
+        a = 2;
+        return false;
+        } 
+
+        if((name == '' || name == 'undefined') && a==2){
+        buttonMoveLeft();
+        a = 1;
+        return false;
+        } 
+
+        else{
+
+            // document.getElementById('submit-btn').click();  
+            document.getElementById('submit-btn').style.cursor = 'pointer';
+            return false;
+        };
+
+    };
+
+
+    
+
+    function buttonMoveLeft(){
+
+        const button = document.getElementById('submit-btn');
+        button.style.transform = 'translateX(-160%)';
+
+    };
+
+
+    function buttonMoveRight(){
+
+        const button = document.getElementById('submit-btn');
+        button.style.transform = 'translateX(0%)';
+
+    };
+
+
+    function resetBtn(){
+        const button = document.getElementById('submit-btn');
+        button.style.transform = 'translateX(0%)';
+    };
+
+
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="questionBank.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
